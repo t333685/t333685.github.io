@@ -1,14 +1,14 @@
 .drive{
-    width: 700px;
-    display: flex;
-    justify-content: center;
+    width: 960px;
+    height: 800px;
     margin: auto;
-    margin-top: 200px;
-    margin-bottom: 500px;
     position: relative;
+    margin-top: 100px;
 }
-.drive img{
+.pic-right{
     position: relative;
+    left: 180px;
+    top: 130px;
     z-index: 1;
 }
 .small-grey-area{
@@ -16,15 +16,14 @@
     width: 350px;
     height: 300px;
     position: absolute;
-    top: -80px;
-    right: -50px;
+    bottom: 450px;
+    left: 600px;
 }
 .text-on-left{
-    width: 310px;
+    width: 320px;
     color: white;
     position: absolute;
-    left: -150px;
-    bottom: 215px;
+    top: 30px;
     z-index: 2;
 }
 .order{
@@ -54,8 +53,8 @@ h3{
     height: 35px;
     z-index: 2;
     position: relative;
-    top: 230px;
-    right: 50px;
+    left: 825px;
+    bottom: 70px;
     display: flex;
 }
 .youtube{
@@ -71,8 +70,7 @@ h3{
     background-color: #ebebe3;
     width: 650px;
     position: absolute;
-    top: 400px;
-    right: 130px;
+    top: 530px;
     padding: 20px;
 }
 .innovation{
@@ -99,16 +97,22 @@ hr{
     width: 500px;
     height: 400px;
     position: absolute;
-    top: -80px;
-    right: -80px;
+    top: 50px;
+    left: 300px;
 }
 .text-on-right{
     width: 310px;
     color: white;
     position: absolute;
-    right: -200px;
-    bottom: 215px;
+    right: 0;
+    top: 30px;
     z-index: 2;
+}
+.pic-left{
+    position: relative;
+    top: 130px;
+    left: 5px;
+    z-index: 1;
 }
 .youtube-on-left{
     background-color: #65000b;
@@ -116,8 +120,7 @@ hr{
     height: 35px;
     z-index: 2;
     position: relative;
-    top: 230px;
-    right: 705px;
+    top: -100px;
     display: flex;
 }
 .information-on-right{
@@ -125,7 +128,7 @@ hr{
     background-color: #ebebe3;
     width: 650px;
     position: absolute;
-    top: 400px;
-    right: 130px;
+    right: 0;
+    top: 530px;
     padding: 20px;
 }
