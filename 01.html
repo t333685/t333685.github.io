@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrap{
+            width: 600px;
+            height: 600px;
+            background-color: #CCC;
+            display: flex;
+            flex-wrap: wrap-reverse;
+            /* justify-content: center; */
+            flex-direction: row-reverse;
+            align-content: center;
+            align-items: flex-end; /*1排在中間的4種寫法 */
+        }
+        .item{
+            width: 150px;
+            height: 100px;
+            background-color: red;
+            font-size: 50px;
+            color: #FFF;
+            margin: 4px;
+            /* flex-grow: 1; */
+            margin-top: auto;
+        }
+        .first{
+            height: 200px;
+            margin-top: auto;
+            order: -1;
+            /* flex-grow: 2; */
+        }
+        .three{
+            align-self: center;
+        }
+        .two{
+            order: -2;
+            color: blue;
+            /* flex-grow: 1; */
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="item first">1</div>
+        <div class="item two">2</div>
+        <div class="item three">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+    </div>
+</body>
+</html>
