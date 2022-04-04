@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .about-cat{
+            width: 1200px;
+            border: 5px dashed #ffbe80;
+            margin: auto;
+        }
+        .pic{
+            width: 300px;
+            margin: auto;
+        }
+        .detail{
+            width: 300px;
+            margin: auto;
+        }
+        .cat{
+            width: 300px;
+            height: 250px;
+            border-radius: 20%;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        p{
+            margin-left: 60px;
+            font-size: 25px;
+        }
+        .idol{
+            width: 1200px;
+            display: flex;
+            justify-content: space-around;
+        }
+    </style>
+</head>
+<body>
+    <div class="about-cat">
+        <div class="pic">
+            <img id="my-cat" src="" alt="">
+        </div>
+        <div class="detail">
+            <h2>姓名 :</h2>
+            <p>大成</p>
+            <h2>E-mail :</h2>
+            <p>meowmeow@gmail.com</p>
+            <h2>學校 :</h2>
+            <p>無上學經驗</p>
+            <h2>興趣 :</h2>
+            <p>吃雞絲湯罐頭<br>欣賞窗外風景<br>找人類撒嬌</p>
+        </div>
+        <div class="idol">
+            <img src="https://img.ltn.com.tw/Upload/news/600/2014/10/11/php0ABqQV.jpg" alt="" class="cat">
+            <img src="https://img.ealou.com/upload/website_attach/oUMCDwRPRngvDT2UF7Xg=xYzlWN8uWWapT4PDVf2DfgaFKhGTnfqjGDAncIwimyYspvCSmbco.jpeg" alt="" class="cat">
+            <img src="https://inews.gtimg.com/newsapp_bt/0/9987875115/1000" alt="" class="cat">
+        </div>
+    </div>
+    <script>
+        let h2=document.querySelectorAll("h2");
+        let p=document.querySelectorAll("p");
+        let img=document.getElementById("my-cat");
+        let three_idols=document.querySelectorAll("idol img");
+        const mycat="https://t333685.github.io/9E6219C2-5E77-4B82-B16B-504BC8326E4F.jpg"; 
+
+        img.setAttribute("src",mycat);
+        img.setAttribute("alt","貓咪")
+        img.setAttribute("class","cat");
+
+        const imageArray=[
+            "https://img.ltn.com.tw/Upload/news/600/2014/10/11/php0ABqQV.jpg",
+            "https://img.ealou.com/upload/website_attach/oUMCDwRPRngvDT2UF7Xg=xYzlWN8uWWapT4PDVf2DfgaFKhGTnfqjGDAncIwimyYspvCSmbco.jpeg",
+            "https://inews.gtimg.com/newsapp_bt/0/9987875115/1000",
+        ];
+        // imageArray.forEach((url,index) => {
+        //     document.write(`<img src=${url} class="cat center">`);
+        // });
+        imageArray.forEach((url,index) => {
+            three_idols[index].setAttribute("src",imageArray[index])
+        });
+    </script>
+</body>
+</html>
