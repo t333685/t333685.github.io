@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hello, world!</title>
+    <link rel="stylesheet" href="q2.css">
+    <link rel="stylesheet" href="reset.css">
+    </head>
+    <body>
+    <div class="container">
+        <p id="input"></p>
+        <div class="num-group">
+            <div class="num">
+                <button type="button" id="ac">C</button>
+                <button type="button" id="fall_back">></button>
+                <button type="button" class="btn_operator">+</button>
+            </div>
+            <div class="num">
+                <button type="button" class="btn_num">1</button>
+                <button type="button" class="btn_num">2</button>
+                <button type="button" class="btn_num">3</button>
+                <button type="button" class="btn_operator">-</button>
+            </div>
+            <div class="num">
+                <button type="button" class="btn_num">4</button>
+                <button type="button" class="btn_num">5</button>
+                <button type="button" class="btn_num">6</button>
+                <button type="button" class="btn_operator">x</button>
+            </div>
+            <div class="num">
+                <button type="button" class="btn_num">7</button>
+                <button type="button" class="btn_num">8</button>
+                <button type="button" class="btn_num">9</button>
+                <button type="button" class="btn_operator">/</button>
+            </div>
+            <div class="num">
+                <button type="button" class="btn_operator equal">=</button>
+                <button type="button" class="btn_num">0</button>
+                <button type="button" class="btn_num float">.</button>
+                <button type="button" class="btn_operator">%</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        let btn_num=document.getElementsByClassName("btn_num");
+        let btn_operator=document.getElementsByClassName("btn_operator");
+        let input=document.getElementById("input");
+        let ac=document.getElementById("ac");
+        let fall_back=document.getElementById("fall_back");
+        let display_num=""; //值
+        let pending_num="";
+        let operator_array=[];
+
+        for(let i=0;i<btn_num.length;i++){
+            btn_num[i].addEventListener("click",function(event){
+                let btnText=event.target.innerHTML;
+                display_num+=btnText;
+                input.innerHTML=display_num;
+                if(display_num.charAt(0)==="0"){
+                    alert("第一位數字不可為零");
+                    display_num="";
+                    let pending_num="";
+                    input.innerHTML="";
+                }
+            })
+        }
+
+        for(let i=0;i<btn_operator.length;i++){
+            btn_operator[i].addEventListener("click",function(event){
+                let operator=event.target.innerHTML;
+                switch(operator){
+                    case '+':
+                        pending_num=display_num; //存前面的值
+                        display_num="";    
+                        input.innerText=display_num; //按計算符號時螢幕無顯示
+                        operator_array.push(pending_num);
+                        operator_array.push('+'); //["前值","+"]
+                        break;
+                    case '-':
+                        pending_num=display_num;
+                        display_num="";    
+                        input.innerText=display_num;
+                        operator_array.push(pending_num);
+                        operator_array.push('-');
+                        break;
+                    case 'x':
+                        pending_num=display_num;
+                        display_num="";    
+                        input.innerText=display_num;
+                        operator_array.push(pending_num);
+                        operator_array.push('*');
+                        if(operator_array.indexOf('')===0&&operator_array.indexOf('*')===1){
+                            alert("請先輸入欲計算之值")
+                            operator_array=[];
+                            pending_num="";
+                            display_num="";
+                        }
+                        break;
+                    case '/':
+                        pending_num=display_num;
+                        display_num="";    
+                        input.innerText=display_num;
+                        operator_array.push(pending_num);
+                        operator_array.push('/');
+                        if(operator_array.indexOf('')===0&&operator_array.indexOf('/')===1){
+                            alert("請先輸入欲計算之值")
+                            operator_array=[];
+                            pending_num="";
+                            display_num="";
+                        }
+                        break;
+                    case '%':
+                        pending_num=display_num;
+                        display_num="";    
+                        input.innerText=display_num;
+                        operator_array.push(pending_num);
+                        operator_array.push('%');
+                        if(operator_array.indexOf('')===0&&operator_array.indexOf('%')===1){
+                            alert("請先輸入欲計算之值")
+                            operator_array=[];
+                            pending_num="";
+                            display_num="";
+                        }
+                        break;
+                    case '=':
+                        operator_array.push(display_num); //["前值","+","後值"]
+                        let ans=eval(operator_array.join("")); //變成一句話執出來，並計算
+                        display_num=ans;
+                        input.innerText=display_num;
+                        operator_array=[];
+                        if(typeof display_num==="undefined"){
+                            alert("尚未計算任何值");
+                            operator_array=[];
+                            pending_num="";
+                            display_num="";
+                            input.innerText=display_num;
+                        }
+                        break;
+                    default:
+                        break;
+                }
+
+            })
+        }
+
+        ac.addEventListener("click",function(){
+            display_num="";
+            pending_num="";
+            operator_array=[];
+            input.innerHTML="";
+        })
+        
+        fall_back.addEventListener("click",function(){
+            let reduce_one=display_num.substring(0,display_num.length-1);
+            display_num = reduce_one;
+            input.innerHTML=display_num;
+        })
+    </script>
+    </body>
+</html>

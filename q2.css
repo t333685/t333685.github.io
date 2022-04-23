@@ -1,0 +1,85 @@
+.container{
+    width: 400px;
+    padding: 20px;
+    margin: auto;
+    border: 5px solid black;
+    border-radius: 30px;
+    margin-top: 3%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.num{
+    margin-bottom: 10px;
+}
+#input{
+    width: 362px;
+    height: 30px;
+    border: 5px solid grey;
+    border-radius: 20px;
+    padding-top: 10px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+#ac{
+    background-color: #b32a24;
+    border: none;
+    color: white;
+    width: 185px;
+    border-radius: 20px;
+    padding: 10px;
+}
+#ac:hover{
+    background-color: #ff9d9a;
+    transition: 1s;
+}
+#fall_back{
+    border: none;
+    background-color: #ffbf00;
+    width: 90px;
+    border-radius: 20px;
+    padding: 10px;
+}
+#fall_back:hover{
+    background-color: #ffee80;
+    transition: 1s;
+}
+.btn_operator{
+    border: none;
+    background-color: #00a6cb;
+    color: white;
+    width: 90px;
+    border-radius: 20px;
+    padding: 10px;
+}
+.btn_operator:hover{
+    background-color: #80f3ff;
+    transition: 1s;
+}
+.btn_num{
+    border: none;
+    color: white;
+    width: 90px;
+    background-color: black;
+    border-radius: 20px;
+    padding: 10px;
+}
+.btn_num:hover{
+    background-color: gray;
+    transition: .5s;
+}
+.equal{
+    background-color: #248301;
+    transition: 1s;
+}
+.equal:hover{
+    background-color: #39ff14;
+}
+.float{
+    background-color: #89ddf0;
+}
+.float:hover{
+    background-color: #c8f5ff;
+}
