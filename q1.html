@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hello, world!</title>
+    <link rel="stylesheet" href="q1.css">
+    <link rel="stylesheet" href="reset.css">
+    </head>
+    <body>
+    <div class="container">
+        <button type="button" id="reset_num">重玩</button>
+        <p id="input">0~100</p>
+        <div class="num-group">
+            <div class="num">
+                <button type="button" class="btn_num">1</button>
+                <button type="button" class="btn_num">2</button>
+                <button type="button" class="btn_num">3</button>
+            </div>
+            <div class="num">
+                <button type="button" class="btn_num">4</button>
+                <button type="button" class="btn_num">5</button>
+                <button type="button" class="btn_num">6</button>
+            </div>
+            <div class="num">
+                <button type="button" class="btn_num">7</button>
+                <button type="button" class="btn_num">8</button>
+                <button type="button" class="btn_num">9</button>
+            </div>
+            <div class="num">
+                <button type="button" id="ac">x</button>
+                <button type="button" class="btn_num">0</button>
+                <button type="button" id="judge">v</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        let btn_num=document.getElementsByClassName("btn_num");
+        let input=document.getElementById("input");
+        let ac=document.getElementById("ac");
+        let judge=document.getElementById("judge");
+        let reset_num=document.getElementById("reset_num");
+        let display_num="";
+        let num=Math.round(Math.random()*100);; //產生1~100的數字
+        let min=0;
+        let max=100;
+        reset_num.addEventListener("click",function(){
+            num=Math.round(Math.random()*100); //產生1~100的數字
+            display_num="";
+            input.innerHTML="0~100";
+        })
+        
+        for(let i=0;i<btn_num.length;i++){
+            btn_num[i].addEventListener("click",function(event){
+                let btnText=event.target.innerHTML;
+                display_num+=btnText;
+                input.innerHTML=display_num;
+                if(parseInt(display_num)>100){
+                    alert("數字超過範圍，請輸入1~100之數字範圍");
+                    display_num="";
+                    input.innerHTML="0~100";
+                }
+                if(display_num.charAt(0)==="0"){
+                    alert("第一位數字不可為零");
+                    display_num="";
+                    input.innerHTML="0~100";
+                }
+            })
+        }
+
+        ac.addEventListener("click",function(){
+            display_num="";
+            input.innerHTML=`${min}~${max}`;
+        })
+        
+        judge.addEventListener("click",function(){
+            
+            if(parseInt(display_num)===num){
+                alert("恭喜猜對了!");
+                display_num="";
+                input.innerHTML="0~100";
+                min=0;
+                max=100;
+            }
+            if(parseInt(display_num)<num){
+                min = parseInt(display_num);
+                input.innerHTML=`${min}~${max}`;
+                display_num="";
+            }
+            if(parseInt(display_num)>num){
+                max = parseInt(display_num)
+                input.innerHTML=`${min}~${max}`;
+                display_num="";
+
+            }
+        })
+    </script>
+    </body>
+</html>
