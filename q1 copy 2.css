@@ -1,0 +1,84 @@
+.container{
+    width: 300px;
+    padding: 20px;
+    margin: auto;
+    border: 5px solid black;
+    border-radius: 30px;
+    margin-top: 3%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+#reset_num{
+    border: none;
+    background-color: #2d669d;
+    color: white;
+    width: 250px;
+    border-radius: 20px;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+}
+#reset_num:hover{
+    background-color: #a4d2ff;
+    transition: 1s;
+}
+#input{
+    width: 250px;
+    border: 2px solid black;
+    border-radius: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.num-group{
+    width: 250px;
+    border: 2px solid black;
+    border-radius: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.btn_num{
+    border: none;
+    color: white;
+    width: 70px;
+    background-color: black;
+    border-radius: 20px;
+    padding: 10px;
+}
+.btn_num:hover{
+    background-color: gray;
+    transition: .5s;
+}
+.num{
+    margin-bottom: 10px;
+}
+#ac{
+    background-color: #b32a24;
+    border: none;
+    color: white;
+    width: 70px;
+    border-radius: 20px;
+    padding: 10px;
+}
+#ac:hover{
+    background-color: #ff9d9a;
+    transition: 1s;
+}
+#judge{
+    background-color: #00ab78;
+    border: none;
+    color: white;
+    width: 70px;
+    border-radius: 20px;
+    padding: 10px;
+}
+#judge:hover{
+    background-color: #80ffeb;
+    transition: 1s;
+}
