@@ -1,0 +1,65 @@
+.container{
+    width: 500px;
+    border: 5px solid #8F957C;
+    margin: auto;
+    margin-top: 3%;
+    padding: 20px;
+    border-radius: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.btn-function{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.btn-function button{
+    border: 3px solid #cbd5b1;
+    padding: 5px;
+    width: 165px;
+    background-color: white;
+    border-radius: 20px;
+}
+.container button:hover{
+    background-color: #cbd5b1;
+    color: white;
+    transition: 1s;
+}
+.play{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+input{
+    border: 3px solid #cbd5b1;
+    border-radius: 20px;
+    width: 430px;
+    padding: 5px;
+}
+.play button{
+    border: 3px solid #cbd5b1;
+    padding: 5px;
+    background-color: white;
+    border-radius: 20px;
+    width: 50px;
+}
+.area{
+    border: 3px solid #cbd5b1;
+    padding: 10px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+.XAXB{
+    background-color: #ff2400;
+    color:white;
+    font-weight: bold;
+}
+p{
+    padding: 5px 20px;
+    display: inline;
+    border-radius: 20px;
+    width: 50px;
+}

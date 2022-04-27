@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="q3.css">
+</head>
+<body>
+    <div class="container">
+        <div class="btn-function">
+            <button type="button" id="start">開始</button>
+            <button type="button" id="give_up">放棄重來</button>
+            <button type="button" id="watch_ans">看答案</button>
+        </div>
+        <div class="guess_area"></div>
+        <div class="play">
+            <input type="text" placeholder="猜答案" id="input">
+            <button type="button" id="guess">猜!</button>
+        </div>
+    </div>
+    <script>
+        let start=document.getElementById("start");
+        let give_up=document.getElementById("give_up");
+        let watch_ans=document.getElementById("watch_ans");
+        let guess=document.getElementById("guess");
+        let input=document.getElementById("input");
+        let container=document.getElementsByClassName("container");
+        let guess_area=document.querySelector(".guess_area");
+        let A=0;
+        let B=0;
+        let result;
+        let answer;
+        let num_range=[];
+        let array=[];
+
+        start.addEventListener("click",function(){
+            for(let i=0;i<4;i++){
+                num_range[i]=Math.round(Math.random()*9);
+                for (let j=0;j<i;j++) {
+                    if (num_range[i] === num_range[j]) {
+                        i--;
+                        break;
+                    }
+                }
+            }
+            answer=num_range;
+        });
+
+        guess.addEventListener("click",function(){
+            if(input.value===""){
+                alert("輸入值不可為空");
+                input.value="";
+                return;
+            }
+            else if(/^\d+$/.test(input.value)==false){ //複習正規表達式
+                alert("不可輸入除數字外之內容");
+                input.value="";
+                return;
+            }
+            else if(input.value.length!==4){
+                alert("請輸入四位數");
+                input.value="";
+                return;
+            }
+            array=Array.from(input.value).map(str=>parseInt(str)); //把輸入值轉成數字陣列
+            var repeat = array.filter(function(element, index, arr){
+                return arr.indexOf(element) !== index;
+            });
+            if(repeat.length!=0){
+                alert("數字不可重複");
+                input.value="";
+                return;
+            }
+
+            let area=document.createElement('div');
+            area.setAttribute('class','area');
+            let XAXB=document.createElement('p');
+            XAXB.setAttribute('class','XAXB');
+            let display_num=document.createElement('p');
+            display_num.setAttribute('class','display_num');
+            area.append(XAXB);
+            area.append(display_num);
+            guess_area.append(area);
+
+            for(let i=0;i<4;i++){
+                if(input.value[i]==answer[i]){
+                    A++;
+                    if(A===4){
+                        XAXB.style.backgroundColor='#ccff00';
+                        XAXB.style.color='white';
+                        XAXB.style.fontWeight='bold';
+                    }
+                }
+            }
+            
+            result =answer.filter((x) => {
+                let idx =array.indexOf(x) 
+                let XB = idx> -1
+                return XB;
+            })
+            B=result.length-A;
+            XAXB.innerText=A+"A"+B+"B";
+            display_num.innerText=input.value;
+
+
+            A=0;
+            B=0;
+            input.value="";
+        });
+
+        give_up.addEventListener("click",function(){
+            window.location.reload();
+        })
+
+        watch_ans.addEventListener("click",function(){
+            if(answer===undefined){
+                alert("尚未開始遊戲");
+            }
+            else{
+                alert("答案是"+answer);
+                window.location.reload();
+            }
+        })
+
+    </script>
+</body>
+</html>
