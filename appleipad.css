@@ -45,6 +45,7 @@ button{
     flex-wrap: wrap;
     justify-content: center;
     text-align: center;
+    align-items: center;
 }
 .main-pic{
     max-width: 1200px;
@@ -80,7 +81,6 @@ button{
     border-radius: 20px;
     margin: 10px 10px 5px 0;
     display: flex;
-    flex-wrap: wrap;
     flex-direction: column;
     justify-content: center;
     align-items: center;
