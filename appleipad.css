@@ -1,0 +1,124 @@
+a{
+    text-decoration: none;
+    color: black;
+}
+.publicity>a{
+    color: blue;
+}
+button{
+    border: none;
+    background-color: white;
+}
+.header{
+    max-width: 1200px;
+    background-color: white;
+    margin: auto;
+    padding: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+.header a,.header p,.new+p,.new+p+p{
+    font-weight: bold;
+}
+.container,.main{
+    width: 100%;
+}
+.ad{
+    width: 100%;
+    background-color: #d1dfe8;
+    animation-name: change-color;
+    animation-duration: 3s;
+    animation-iteration-count: 1;
+    animation-delay: 1s;
+}
+@keyframes change-color{
+    from{background-color: blue;color: white;}
+    to{background-color: #d1dfe8;color: black;}
+}
+.publicity{
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+}
+.main-pic{
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+}
+.main-pic img{
+    width: 50%;
+    display: block;
+}
+.new{
+    color: red;
+    margin-bottom: 10px;
+    padding-left: 50px;
+}
+.new+p{
+    font-size: 30px;
+    margin-bottom: 70px;
+    padding-left: 50px;
+}
+.new+p+p{
+    padding-left: 50px;
+}
+.main-content{
+    padding-top: 50px;
+    border-bottom: 1px solid #ebebe3;
+    width: 50%;
+}
+.ipad-style{
+    border: 1px solid #ebebe3;
+    width: 250px;
+    height: 125px;
+    border-radius: 20px;
+    margin: 10px 10px 5px 0;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.ipad-style:hover{
+    border: 1px solid black;
+}
+.ipad-style:focus{
+    border: 1px solid blue;
+}
+.ipad-style img{
+    width: 40px;
+    margin-bottom: 10px;
+}
+.group{
+    display: flex;
+    justify-content: flex-end;
+}
+.device{
+    max-width: 1200px;
+    margin: auto;
+}
+.GB{
+    margin-left: 50%;
+    padding: 30px 0;
+    width: 50%;
+    border-bottom: 1px solid #ebebe3;
+}
+.store{
+    font-weight: bold;
+}
+.store+p{
+    background-color: #d1dfe8;
+    padding: 20px;
+    border-radius: 30px;
+    margin: 20px 0px;
+}
+.choose-GB{
+    font-size: 30px;
+    font-weight: bold;
+}

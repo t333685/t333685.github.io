@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="appleipad.css">
+    <link rel="stylesheet" href="../Hackson/reset.css">
+    <title>Hello, world!</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <a href="https://www.apple.com/tw/ipad-air/">iPad Air</a>
+                <p id="NT-price">NT$17,900 起</p>
+            </div>
+        </div>
+        <div class="ad">
+            <div class="publicity">
+                <p>可申請最長達 12 個月的零利率分期付款。</p>
+                <a href="#">進一步了解 ></a>
+            </div>
+        </div>
+        <div class="main">
+            <div class="main-pic">
+                <img src="./ipadall.jpg" alt="ipad" id="img">
+                <div class="main-content">
+                    <p class="new">全新</p>
+                    <p>購買 iPad Air</p>
+                    <p>外觀</p>
+                    <div class="group">
+                        <div class="ipad-style btn">
+                            <button><img src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/finish-spacegray-202203?wid=104&amp;hei=104&amp;fmt=png-alpha&amp;.v=1645072286860" alt="gray"></button>
+                            <button><p>太空灰色</p></button>
+                        </div>
+                        <div class="ipad-style btn">
+                            <button><img src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/finish-pink-202203?wid=104&amp;hei=104&amp;fmt=jpeg&amp;qlt=95&amp;.v=1645072286848" alt="pink"></button>
+                            <button><p>粉紅色</p></button>
+                        </div>
+                    </div>
+                    <div class="group">
+                        <div class="ipad-style btn">
+                            <button><img src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/finish-purple-202203?wid=104&amp;hei=104&amp;fmt=jpeg&amp;qlt=95&amp;.v=1645072286861" alt="purple"></button>
+                            <button><p>紫色</p></button>
+                        </div>
+                        <div class="ipad-style btn">
+                            <button><img src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/finish-blue-202203?wid=104&amp;hei=104&amp;fmt=jpeg&amp;qlt=95&amp;.v=1645072286826" alt="blue"></button>
+                            <button><p>藍色</p></button>
+                        </div>
+                    </div>
+                    <div class="group">
+                        <div class="ipad-style btn">
+                            <button><img src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/finish-starlight-202203?wid=102&amp;hei=102&amp;fmt=jpeg&amp;qlt=95&amp;.v=1645049661304" alt="starlight"></button>
+                            <button><p>星光色</p></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="device">
+            <div class="GB">
+                <p class="store">儲存裝置</p>
+                <p>提前為日後預留空間。你的 iPad Air 儲存空間愈大， 你就有愈多空間儲存數位內容，滿足今日所需，也滿足未來需求。</p>
+                <div class="group">
+                    <div class="ipad-style calculate">
+                        <button><p class="choose-GB">64GB</p></button>
+                        <button><p>NT$17,900 起</p></button>
+                    </div>
+                    <div class="ipad-style calculate">
+                        <button><p class="choose-GB">256GB</p></button>
+                        <button><p>NT$22,900 起</p></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="device">
+            <div class="GB">
+                <p class="store">連線能力</p>
+                <p>兩種快速的方式，讓你時時保持聯繫。每部 iPad Air 都可連接到 Wi-Fi 網路。Wi-Fi + 行動網路機型則讓你在無法使用 Wi-Fi 時，也能連上線。
+                </p>
+                <div class="group">
+                    <div class="ipad-style calculate">
+                        <button><p class="choose-GB">Wi-Fi</p></button>
+                        <button><p>NT$17,900 起</p></button>
+                    </div>
+                    <div class="ipad-style calculate">
+                        <button><p class="choose-GB">Wi-Fi+行動網路</p></button>
+                        <button><p>NT$22,900 起</p></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            const url="https://raw.githubusercontent.com/t333685/t333685.github.io/main/ipadhomework.json";
+            let btn=document.getElementsByClassName("btn");
+            let img=document.getElementById("img");
+            let ipadArray=[];
+            let NT_price=document.getElementById("NT-price");
+            let calculate=document.getElementsByClassName("calculate");
+
+            window.onload = function () {
+                requestIpadJson();
+            }
+
+            let xhr = new XMLHttpRequest();
+            let color=[];
+            let price=[];
+            let storage=[];
+            let network=[];
+            function requestIpadJson() {
+                xhr.onload = function () {
+                    ipadArray=this.response;
+                    for(let i=0;i<ipadArray.length;i++){
+                        color.push({color:ipadArray[i].color,picture:ipadArray[i].picture});
+                        color = color.filter(function(element, index, arr){
+                            return arr.indexOf(element) === index;
+                        });
+                        color=color.slice(0,6);
+                        price.push(ipadArray[i].price);
+                        price = price.filter(function(element, index, arr){
+                            return arr.indexOf(element) === index;
+                        });
+                        storage.push(ipadArray[i].storage);
+                        storage = storage.filter(function(element, index, arr){
+                            return arr.indexOf(element) === index;
+                        });
+                        network.push(ipadArray[i].network);
+                        network = network.filter(function(element, index, arr){
+                            return arr.indexOf(element) === index;
+                        });
+                    }
+                }
+                xhr.open("GET", url);
+                xhr.responseType="json";
+                xhr.send();
+            }
+            for(let i=0;i<btn.length;i++){
+                btn[i].addEventListener("click",function(event){
+                    img.setAttribute('src',color[i].picture)
+                })
+            }
+            let sum_price=[];
+            for(let i=0;i<calculate.length;i++){
+                calculate[i].addEventListener("click",function(event){
+                    let mix_arr=storage.concat(network);
+                    sum_price.push(mix_arr[i]);
+                    if(sum_price.slice(-2).includes('Wi-Fi')&&sum_price.slice(-2).includes('64GB')){
+                        NT_price.innerHTML="NT$"+price[0]
+                    }
+                    else if(sum_price.slice(-2).includes('Wi-Fi')&&sum_price.slice(-2).includes('256GB')){
+                        NT_price.innerHTML="NT$"+price[1]
+                    }
+                    else if(sum_price.slice(-2).includes('Wi-Fi+行動網路')&&sum_price.slice(-2).includes('64GB')){
+                        NT_price.innerHTML="NT$"+price[1]
+                    }
+                    else if(sum_price.slice(-2).includes('Wi-Fi+行動網路')&&sum_price.slice(-2).includes('256GB')){
+                        NT_price.innerHTML="NT$"+price[2]
+                    }
+                });
+            }
+            
+        </script>
+    </body>
+</html>
