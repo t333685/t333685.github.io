@@ -1,0 +1,72 @@
+.nav-limit{
+    background-color: #ffffff;
+}
+/* 導覽列 */
+header{
+    z-index: 10;
+}
+.nav-limit .container-fluid, .fixed-width{
+    box-sizing: border-box;
+}
+h1{
+    width: 20%;
+    max-width: 80px;
+}
+.nav-limit{
+    top: 0;
+    left: 0;
+}
+.nav-limit .navbar-nav a:hover, .category-limit a:hover{
+    color: #26bec9!important;
+}
+/* footer */
+.footer-limit{
+    background-color: #aaa;
+}
+.app a{
+    width: 25px;
+    height: 25px;
+    background-color: rgb(53, 50, 50);
+}
+.app i{
+    line-height: 25px;
+}
+.footer-limit .footer-list a:hover{
+    color: #ffaf1e!important;
+}
+.footer-limit .app a:hover{
+    background-color: #51BAF8;
+}
+@media screen and (max-width: 768px) {
+    .footer-limit .title-icon{
+        cursor: pointer;
+    }
+}
+@media screen and (max-width: 992px) {
+    header .navbar-toggler{
+        width: 40px;
+        height: 40px;
+        position: relative;
+    }
+    header .navbar-toggler span{
+        background-color: white;
+        display: block;
+        width: 33px;
+        height: 3px;
+
+        position: absolute;
+
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        transition: all 1s 0s ease;
+    }
+    header .navbar-toggler span:first-child{
+        transform: translate(0, -8px);
+    }
+    header .navbar-toggler span:last-child{
+        transform: translate(0, 8px);
+    }
+}
