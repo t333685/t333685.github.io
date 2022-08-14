@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../Hackson/reset.css">
+    <link rel="stylesheet" href="q4.css">
+</head>
+<body>
+    <div class="container">
+        <div class="create">
+            <input type="text" placeholder="todo..." id="input">
+            <button type="button" id="insert">新增</button>
+        </div>
+    </div>
+    <script>
+        let input=document.getElementById("input");
+        let insert=document.getElementById("insert");
+        let container=document.querySelector(".container");
+        let array=[];
+        let before;
+        let after;
+        let remove;
+
+        //新增按鈕
+        insert.addEventListener("click",function(){
+            if(input.value==''){
+                alert("輸入值不可為空");
+                return;
+            }
+
+            let create_list=document.createElement('div');           
+            create_list.setAttribute('class','create_list');
+            let confirm=document.createElement('div');
+            confirm.setAttribute('class','confirm');
+            let btn=document.createElement('div');
+            btn.setAttribute('class','btn');
+            let check_box=document.createElement('input');
+            check_box.setAttribute('type','Checkbox');
+            check_box.setAttribute('disabled','true');
+            let data=document.createElement('input');
+            data.setAttribute('class','data');
+            data.setAttribute('disabled','true');
+            let edit=document.createElement('button');
+            edit.setAttribute('id','edit');
+            let save=document.createElement('button');
+            save.setAttribute('id','save');
+            let delete_=document.createElement('button');
+            delete_.setAttribute('id','delete');
+            confirm.append(check_box,data);
+            btn.append(edit,save,delete_);
+            create_list.append(confirm,btn);
+            container.append(create_list);
+            edit.innerText="編輯";
+            delete_.innerText="刪除";
+            data.value=input.value;
+            input.value="";
+
+            //local Storage
+            let obj={data:data.value,checkBox:"false"};
+            array.push(obj);
+            localStorage.setItem("data",JSON.stringify(array));
+
+            //編輯按鈕
+            edit.addEventListener("click",function(){
+                data.removeAttribute('disabled','true');
+                check_box.removeAttribute('disabled','true');
+                edit.style.display="none";
+                save.style.display="inline";
+                save.innerText="保存";
+                before=data.value;
+            })
+            //保存按鈕
+            save.addEventListener("click",function(event){
+                data.setAttribute('disabled','true');
+                check_box.setAttribute('disabled','true');
+                save.style.display="none";
+                edit.style.display="inline";
+                let dataSave=array;
+                after=data.value;
+                for(let i=0;i<array.length;i++){
+                    if(array[i].data==`${before}`){
+                        array[i].data=`${after}`;
+                        localStorage.clear();
+                        localStorage.setItem("data",JSON.stringify(array));
+                    }
+                }
+            })
+            //刪除按鈕
+            delete_.addEventListener("click",function(){
+                create_list.remove();
+                remove=data.value;
+                for(let i=0;i<array.length;i++){
+                    if(array[i].data==`${remove}`){
+                        array.splice(i,1);
+                        localStorage.clear();
+                        localStorage.setItem("data",JSON.stringify(array));
+                    }
+                }
+            })
+        })
+        if(window.location.reload){
+            array=JSON.parse(localStorage.data)
+            for(let i=0;i<array.length;i++){
+                let create_list=document.createElement('div');           
+                create_list.setAttribute('class','create_list');
+                let confirm=document.createElement('div');
+                confirm.setAttribute('class','confirm');
+                let btn=document.createElement('div');
+                btn.setAttribute('class','btn');
+                let check_box=document.createElement('input');
+                check_box.setAttribute('type','Checkbox');
+                check_box.setAttribute('disabled','true');
+                let data=document.createElement('input');
+                data.setAttribute('class','data');
+                data.setAttribute('disabled','true');
+                let edit=document.createElement('button');
+                edit.setAttribute('id','edit');
+                let save=document.createElement('button');
+                save.setAttribute('id','save');
+                let delete_=document.createElement('button');
+                delete_.setAttribute('id','delete');
+                confirm.append(check_box,data);
+                btn.append(edit,save,delete_);
+                create_list.append(confirm,btn);
+                container.append(create_list);
+                edit.innerText="編輯";
+                delete_.innerText="刪除";
+                data.value=array[i].data;
+                //編輯按鈕
+                edit.addEventListener("click",function(){
+                    data.removeAttribute('disabled','true');
+                    check_box.removeAttribute('disabled','true');
+                    edit.style.display="none";
+                    save.style.display="inline";
+                    save.innerText="保存";
+                    before=data.value;
+                })
+                //保存按鈕
+                save.addEventListener("click",function(event){
+                    data.setAttribute('disabled','true');
+                    check_box.setAttribute('disabled','true');
+                    save.style.display="none";
+                    edit.style.display="inline";
+                    let dataSave=array;
+                    after=data.value;
+                    for(let i=0;i<array.length;i++){
+                        if(array[i].data==`${before}`){
+                            array[i].data=`${after}`;
+                            localStorage.clear();
+                            localStorage.setItem("data",JSON.stringify(array));
+                        }
+                    }
+                })
+                //刪除按鈕
+                delete_.addEventListener("click",function(){
+                    create_list.remove();
+                    remove=data.value;
+                    for(let i=0;i<array.length;i++){
+                        if(array[i].data==`${remove}`){
+                            array.splice(i,1);
+                            localStorage.clear();
+                            localStorage.setItem("data",JSON.stringify(array));
+                        }
+                    }
+                })
+                }
+        }
+    </script>
+</body>
+</html>
